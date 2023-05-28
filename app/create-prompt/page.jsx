@@ -19,11 +19,11 @@ const CreatePrompt = () => {
     try {
       const response = await fetch("/api/prompt/new", {
         method: "POST",
-        body: {
+        body: JSON.stringify({
           prompt: post.prompt,
           userId: session?.user.id,
           tag: post.tag,
-        },
+        }),
       });
       if (response.ok) {
         router.push("/");
